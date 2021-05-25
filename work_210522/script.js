@@ -1,5 +1,3 @@
-// さなの練習
-
 (() => {
     window.addEventListener('DOMContentLoaded', () => {
 
@@ -65,11 +63,6 @@
         specular: 0xff0000, //specular light
     };
 
-    const MATERIAL_PARAM_POINT = {
-        color: 0xffff00,
-        size: 0.1,
-    };
-
     const DIRECTIONAL_LIGHT_PARAM = {
         color: 0xeeccaa,
         intensity: 1.0,
@@ -106,7 +99,6 @@
 
 
         material = new THREE.MeshPhongMaterial(MATERIAL_PARAM);
-        // pointMaterial = new THREE.PointsMaterial(MATERIAL_PARAM_POINT);
 
         // box
         geometry = new THREE.BoxBufferGeometry(1.0, 1.0, 1.0);
@@ -147,10 +139,6 @@
         // helper
         axesHelper = new THREE.AxesHelper(5.0);
         scene.add(axesHelper);
-        d_lightHelper = new THREE.DirectionalLightHelper( directionalLight, 5 );
-        scene.add(d_lightHelper);
-        // cameraHelper = new THREE.CameraHelper( camera );
-        // scene.add(cameraHelper);
 
         controls = new THREE.OrbitControls(camera, renderer.domElement);
     }
