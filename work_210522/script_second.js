@@ -236,8 +236,8 @@
                 // 交差しているオブジェクトの1番目(最前面)のものだったら
                 if (intersects.length > 0 && mesh === intersects[0].object) {
                     // 透過する
-                    mesh.scale.set(1.0, 2.0, 1.0);
                     mesh.material.transparent = true;
+                    mesh.position.y = -20.0;
                 }
             });
 
