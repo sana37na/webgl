@@ -237,7 +237,11 @@
                 if (intersects.length > 0 && mesh === intersects[0].object) {
                     // 透過する
                     mesh.material.transparent = true;
-                    mesh.position.y = -20.0;
+                    gsap.to(mesh.position, {
+                        y: -10.0,
+                        duration: 3.0,
+                        ease: 'circ.in',
+                    })
                 }
             });
 
