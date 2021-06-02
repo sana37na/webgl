@@ -39,7 +39,6 @@
     let geometry;
     let material;
     let controls;
-    let axesHelper;
     let directionalLight;
     let ambientLight;
 
@@ -228,27 +227,9 @@
                 // 交差しているオブジェクトの1番目(最前面)のものだったら
                 if (intersects.length > 0 && mesh === intersects[0].object) {
                     // 透過する
-                    // mesh.scale.y = 2.0;
-                    // mesh.position.y = -20.0;
                     mesh.material.transparent = true;
-                    // gsap.to(mesh.position, {
-                    //     y: -10.0,
-                    //     duration: 3.0,
-                    //     ease: 'circ.in',
-                    // })
                 }
             });
-
-
-            // rot += 0.3; // 毎フレーム角度を0.5度ずつ足していく
-            // // ラジアンに変換する
-            // const radian = (rot * Math.PI) / 180;
-            // // 角度に応じてカメラの位置を設定
-            // camera.position.x = 30 * Math.sin(radian);
-            // camera.position.z = 30 * Math.cos(radian);
-            // // 原点方向を見つめる
-            // camera.lookAt(new THREE.Vector3(0, 0, 0));
-            // requestAnimationFrame(tick);
 
             }
     }
