@@ -1,4 +1,4 @@
-import { DragControls } from '../../lib/DragControls.js';
+import { DragControls } from './../lib/DragControls.js';
 
 // ページの読み込みを待つ
 (() => {
