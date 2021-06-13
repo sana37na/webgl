@@ -23,8 +23,7 @@
             camera.updateProjectionMatrix();
         }, false);
 
-        window.addEventListener('click', move, false);
-        window.addEventListener('touchstart', move, false);
+        window.addEventListener('pointerdown', move, false);
 
         run = true;
         render();
@@ -276,11 +275,8 @@
 
     // 回転の動き
     function move(event) {
-        const xPoint = event.touches ? event.touches[0].clientX : event.clientX
-        const yPoint = event.touches ? event.touches[0].clientY : event.clientY
-
-        const x = xPoint/ window.innerWidth * 2.0 - 1.0;
-        const y = yPoint / window.innerHeight * 2.0 - 1.0;
+        const x = event.clientX / window.innerWidth * 2.0 - 1.0;
+        const y = event.clientY / window.innerHeight * 2.0 - 1.0;
         // yだけ反転
         const v = new THREE.Vector2(x, -y);
 
