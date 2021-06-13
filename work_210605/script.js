@@ -23,29 +23,8 @@
             camera.updateProjectionMatrix();
         }, false);
 
-        window.addEventListener('click', (event) => {
-            const x = event.clientX / window.innerWidth * 2.0 - 1.0;
-                const y = event.clientY / window.innerHeight * 2.0 - 1.0;
-                // yだけ反転
-                const v = new THREE.Vector2(x, -y);
-    
-                raycaster.setFromCamera(v, camera);
-                const intersects = raycaster.intersectObject(button);
-
-                if(intersects.length > 0){
-                    isDown = true;
-                    intersects[0].object.material = selectedMaterial;
-                    console.log("ON");
-                }
-
-                // 時間制限
-                window.setTimeout(function(){
-                    isDown = false;
-                    button.material = subMaterial;
-                    console.log("OFF");
-                }, 5000);
-
-        }, false);
+        window.addEventListener('click', move, false);
+        window.addEventListener('touchstart', move, false);
 
         run = true;
         render();
@@ -77,7 +56,7 @@
         aspect: window.innerWidth / window.innerHeight,
         near: 0.1,
         far: 50.0,
-        x: 5.0,
+        x: 10.0,
         y: 0.0,
         z: 25.0,
         lookAt: new THREE.Vector3(0.0, 0.0, 0.0),
@@ -295,23 +274,46 @@
         raycaster = new THREE.Raycaster();
     }
 
-    function render(){
-        if(run === true){
+    // 回転の動き
+    function move(event) {
+        const x = event.clientX / window.innerWidth * 2.0 - 1.0;
+        const y = event.clientY / window.innerHeight * 2.0 - 1.0;
+        // yだけ反転
+        const v = new THREE.Vector2(x, -y);
+
+        raycaster.setFromCamera(v, camera);
+        const intersects = raycaster.intersectObject(button);
+
+        if(intersects.length > 0){
+            isDown = true;
+            intersects[0].object.material = selectedMaterial;
+            console.log("ON");
+        }
+
+        // 時間制限
+        window.setTimeout(function(){
+            isDown = false;
+            button.material = subMaterial;
+            console.log("OFF");
+        }, 5000);
+    }
+
+    function render() {
+        if(run === true) {
             requestAnimationFrame(render);
         }
 
         // スイッチが押されている場合
-        if(isDown === true){
+        if(isDown === true) {
             timer += 1;
             // ラジアンに変換する
-            const lope = (timer * Math.PI) / 180;
+            const roll = (timer * Math.PI) / 180;
 
             // 回転
-            fanGroup.rotation.y = Math.sin(lope) / 2;
+            fanGroup.rotation.y = Math.sin(roll) / 2;
             wingGroup.rotation.y += 0.3;
         }
 
         renderer.render(scene, camera);
     }
 })();
-
