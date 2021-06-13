@@ -77,7 +77,7 @@
         aspect: window.innerWidth / window.innerHeight,
         near: 0.1,
         far: 50.0,
-        x: 0.0,
+        x: 5.0,
         y: 0.0,
         z: 25.0,
         lookAt: new THREE.Vector3(0.0, 0.0, 0.0),
