@@ -30,7 +30,6 @@
     // 汎用変数
     let run = true;     // レンダリングループフラグ
     let isDown = false; // スペースキーが押されているかどうかのフラグ
-    let timer = 0; // タイマー
 
     // three.js に関連するオブジェクト用の変数
     let scene;            // シーン
@@ -46,7 +45,6 @@
     let hourGroup, minGroup, secGroup;
     let composer;
     let renderPass;
-    let glitchPass;
     let dotScreenPass;
 
     // カメラに関するパラメータ
@@ -78,9 +76,6 @@
     const SUB_MATERIAL_PARAM = {
         color: 0x425A9F,
     }
-    const SELECTED_PARAM = {
-        color: 0xf0c31f,
-    }
     // ライトに関するパラメータの定義
     const DIRECTIONAL_LIGHT_PARAM = {
         color: 0xffffff,
@@ -103,7 +98,6 @@
         renderer = new THREE.WebGLRenderer({
             alpha: true, // シーンを透過
         });
-        // renderer.setClearColor(new THREE.Color(RENDERER_PARAM.clearColor));
         renderer.setSize(RENDERER_PARAM.width, RENDERER_PARAM.height);
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
@@ -323,9 +317,9 @@
 
         // 軸ヘルパー
         axesHelper = new THREE.AxesHelper(5.0);
-        scene.add(axesHelper);
+        //scene.add(axesHelper);
         d_lightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
-        scene.add(d_lightHelper);
+        //scene.add(d_lightHelper);
 
         // コントロール
         controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -339,12 +333,7 @@
             requestAnimationFrame(render);
         }
 
-        // スイッチが押されている場合
-        // if(isDown === true) {
-        //     timer += 1;
-        // }
-
-
+        // 時計
         const now = new Date();
         const hour = now.getHours();
         const minute = now.getMinutes();
