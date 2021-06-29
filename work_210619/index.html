@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/three.js"></script>
+    <script src="../lib/OrbitControls.js"></script>
+    <script src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        html {
+            background: radial-gradient(rgba(22, 22, 97, 0.568), rgb(1, 28, 44));
+        }
+
+        .planets_data {
+            color: silver;
+            z-index: 2;
+            padding-top: 1em;
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+
+        }
+
+        ul,
+        li {
+            list-style: none;
+            font-size: 0.8em;
+        }
+
+        .detail__name {
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 2em;
+            font-size: 0.9em;
+        }
+
+        .detail__item {
+            padding-left: 1em;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="webgl"></div>
+    <div class="planets_data">
+        <details>
+            <summary class="detail__name">太陽</summary>
+            <ul class="detail__item">
+                <li>直径：1392,000 km</li>
+                <li>地球からの距離：平均 約1億4960万km</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">水星</summary>
+            <ul class="detail__item">
+                <li>直径：4,879 km（地球の約2/5）</li>
+                <li>太陽からの距離：5790万km（地球の約2/5）</li>
+                <li>公転周期：88地球日</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">金星</summary>
+            <ul class="detail__item">
+                <li>直径：12,104 km(地球とほぼ同じ)</li>
+                <li>太陽からの距離：1億820万km(地球と太陽の距離の約3/4)</li>
+                <li>公転周期：225地球日</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">地球</summary>
+            <ul class="detail__item">
+                <li>直径：12,756 km</li>
+                <li>太陽からの距離：1億4960万km</li>
+                <li>公転周期：365.26日</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">火星</summary>
+            <ul class="detail__item">
+                <li>直径：6,792 km(地球の約半分)</li>
+                <li>太陽からの距離：2億2790万km</li>
+                <li>公転周期：687地球日</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">木星</summary>
+            <ul class="detail__item">
+                <li>直径：142,984 km (地球の11倍)</li>
+                <li>太陽からの距離：7億7830万km(地球と太陽の距離の約5.2倍)</li>
+                <li>公転周期：11.9地球年</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">土星</summary>
+            <ul class="detail__item">
+                <li>直径：120,536 km（地球の約10倍）</li>
+                <li>太陽からの距離：14億2940万km(地球と太陽の距離の約9.6倍)</li>
+                <li>公転周期：29.5地球年</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">天王星</summary>
+            <ul class="detail__item">
+                <li>直径：51,118 km(地球の約4倍)</li>
+                <li>太陽からの距離：28億7500万km（地球と太陽の距離の約19.2倍）</li>
+                <li>公転周期：84地球年</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="detail__name">海王星</summary>
+            <ul class="detail__item">
+                <li>直径：49,528 km（地球の約3.9倍）</li>
+                <li>太陽からの距離：45億440万km(地球と太陽の距離の約30倍)</li>
+                <li>公転周期：165地球年</li>
+            </ul>
+        </details>
+    </div>
+</body>
+
+</html>
