@@ -138,7 +138,7 @@
 
         // helper
         axesHelper = new THREE.AxesHelper(5.0);
-        scene.add(axesHelper);
+//         scene.add(axesHelper);
 
         controls = new THREE.OrbitControls(camera, renderer.domElement);
     }
