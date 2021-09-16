@@ -262,7 +262,7 @@
 
         // 軸ヘルパー
         axesHelper = new THREE.AxesHelper(5.0);
-        scene.add(axesHelper);
+//         scene.add(axesHelper);
         d_lightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
         // scene.add(d_lightHelper);
         s_lightHelper = new THREE.DirectionalLightHelper(spotLight, 5);
